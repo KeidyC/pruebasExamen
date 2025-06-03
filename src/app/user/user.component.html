@@ -1,0 +1,17 @@
+<div class="container">
+    <form #form="ngForm" (ngSubmit)="submit()">
+        <label>Nombre:</label>
+        <input type="text" name="name" [(ngModel)]="name" required>
+        <label>Trabajos:</label>
+        <select [(ngModel)]="job" name="job" required>
+            <option *ngFor="let trabajo of trabajaos" value="trabajo" >{{trabajo}}</option>
+        </select>
+
+        <button type="submit" [disabled]="!nombreValido()">Enviar</button>
+    </form>
+
+    <div *ngIf="codigoHttp">
+        <p [style.color]="colorRespuesta">Codigo Http: {{codigoHttp}}</p>
+        <pre>{{respuesta}}</pre>
+    </div>
+</div>
